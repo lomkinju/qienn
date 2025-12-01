@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { ITINERARY_DATA } from '../constants';
@@ -8,19 +9,19 @@ const StatsCard: React.FC = () => {
   const progress = Math.round((plannedDays / totalDays) * 100);
 
   const data = [
-    { name: 'Planned', value: plannedDays, color: '#7c3aed' }, // purple-600
-    { name: 'Remaining', value: totalDays - plannedDays, color: '#374151' }, // gray-700
+    { name: 'Planned', value: plannedDays, color: '#8b5cf6' }, // violet-500
+    { name: 'Remaining', value: totalDays - plannedDays, color: '#e2e8f0' }, // slate-200
   ];
 
   return (
-    <div className="bg-gray-800 rounded-xl shadow-lg border border-gray-700 p-5 flex flex-col justify-between relative overflow-hidden h-full">
+    <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-6 flex flex-col justify-between relative overflow-hidden h-full border border-slate-100">
       <div className="z-10">
-        <h2 className="text-xl font-bold text-purple-400 mb-1">✅ 規劃進度</h2>
+        <h2 className="text-lg font-bold text-indigo-500 mb-1 uppercase tracking-wider">規劃進度</h2>
         <div className="flex items-baseline gap-2">
-             <span className="text-4xl font-extrabold text-white">{plannedDays}</span>
-             <span className="text-gray-400 font-medium">/ {totalDays} 天</span>
+             <span className="text-4xl font-extrabold text-slate-800">{plannedDays}</span>
+             <span className="text-slate-400 font-medium">/ {totalDays} 天</span>
         </div>
-        <p className="text-xs text-gray-400 mt-2">已完成 {progress}% 的行程安排</p>
+        <p className="text-xs text-slate-500 mt-2">已完成 {progress}% 的行程安排</p>
       </div>
 
       <div className="h-32 w-full mt-4 -mr-4">
@@ -43,8 +44,8 @@ const StatsCard: React.FC = () => {
               ))}
             </Pie>
             <Tooltip 
-                contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', borderRadius: '0.5rem', color: '#fff' }}
-                itemStyle={{ color: '#fff' }}
+                contentStyle={{ backgroundColor: '#fff', borderColor: '#e2e8f0', borderRadius: '0.5rem', color: '#1e293b', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
+                itemStyle={{ color: '#1e293b' }}
                 cursor={false}
             />
           </PieChart>

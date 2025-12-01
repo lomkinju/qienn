@@ -34,37 +34,37 @@ const JapanesePhraseCard: React.FC = () => {
   const phrase = PHRASES[currentIndex];
 
   return (
-    <div className="bg-gray-800 rounded-xl shadow-lg border border-pink-900/30 p-5 h-full flex flex-col relative overflow-hidden group">
+    <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100 p-6 h-full flex flex-col relative overflow-hidden group">
       {/* Decorative bg */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-pink-500/5 rounded-full blur-2xl -mr-8 -mt-8 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-pink-100 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none opacity-60"></div>
 
       <div className="flex justify-between items-start mb-4 z-10">
-        <h2 className="text-xl font-bold text-pink-300 flex items-center gap-2">
-          <MessageCircle size={20} /> 每日一句
+        <h2 className="text-xl font-bold text-slate-700 flex items-center gap-2">
+          <MessageCircle size={20} className="text-pink-500" /> 每日一句
         </h2>
-        <span className="text-xs font-mono bg-pink-900/40 text-pink-200 px-2 py-0.5 rounded border border-pink-500/20">
+        <span className="text-xs font-mono bg-pink-50 text-pink-500 px-2 py-0.5 rounded border border-pink-100">
             {phrase.category}
         </span>
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center text-center z-10 my-2">
-         <p className="text-3xl font-black text-white mb-2 tracking-wide font-sans">{phrase.japanese}</p>
-         <p className="text-sm text-gray-400 font-mono mb-4">{phrase.romaji}</p>
+      <div className="flex-1 flex flex-col items-center justify-center text-center z-10 my-4">
+         <p className="text-3xl font-black text-slate-800 mb-2 tracking-wide font-sans">{phrase.japanese}</p>
+         <p className="text-sm text-slate-400 font-mono mb-5">{phrase.romaji}</p>
          
-         <div className="bg-gray-900/60 rounded-lg px-4 py-2 border border-gray-700">
-             <p className="text-lg text-pink-200 font-bold">{phrase.meaning}</p>
+         <div className="bg-slate-50 rounded-xl px-5 py-3 border border-slate-200 w-full">
+             <p className="text-lg text-indigo-600 font-bold">{phrase.meaning}</p>
          </div>
       </div>
 
-      <div className="mt-4 flex justify-between items-center z-10 border-t border-gray-700/50 pt-3">
-          <button className="text-gray-500 hover:text-pink-400 transition-colors" title="發音 (示意)">
-              <Volume2 size={18} />
+      <div className="mt-4 flex justify-between items-center z-10 border-t border-slate-100 pt-4">
+          <button className="text-slate-400 hover:text-pink-500 transition-colors bg-white hover:bg-pink-50 p-2 rounded-full" title="發音 (示意)">
+              <Volume2 size={20} />
           </button>
           <button 
             onClick={nextPhrase}
-            className="flex items-center gap-2 text-xs text-gray-400 hover:text-white bg-gray-700/50 hover:bg-gray-700 px-3 py-1.5 rounded-full transition-all active:scale-95"
+            className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-full transition-all active:scale-95"
           >
-              <RefreshCw size={12} /> 下一句
+              <RefreshCw size={14} /> 下一句
           </button>
       </div>
     </div>

@@ -21,10 +21,10 @@ const SakuraBackground: React.FC = () => {
             transform: translateX(0) rotate(0deg);
           }
           10% {
-            opacity: 0.8;
+            opacity: 0.6;
           }
           90% {
-            opacity: 0.6;
+            opacity: 0.4;
           }
           100% {
             opacity: 0;
@@ -38,12 +38,14 @@ const SakuraBackground: React.FC = () => {
         }
         .petal {
           position: absolute;
+          /* Darker pink for visibility on light background */
           background: linear-gradient(to bottom right, #fbcfe8, #f472b6);
           border-radius: 150% 0 150% 0;
           opacity: 0;
           animation-name: fall;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
+          box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
         }
       `}</style>
       {petals.map((i) => {
@@ -51,7 +53,7 @@ const SakuraBackground: React.FC = () => {
         const left = Math.random() * 100 + '%';
         const animDuration = 10 + Math.random() * 15 + 's';
         const animDelay = Math.random() * 10 + 's';
-        const size = 8 + Math.random() * 12 + 'px';
+        const size = 10 + Math.random() * 12 + 'px';
 
         return (
           <div

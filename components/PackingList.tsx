@@ -27,29 +27,29 @@ const PackingList: React.FC<PackingListProps> = ({ packedItems, onToggleItem }) 
   const progress = Math.round((packedCount / totalItems) * 100);
 
   return (
-    <div className="bg-gray-800 rounded-2xl border border-gray-700 p-6 shadow-xl">
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-white flex items-center gap-3">
-            <Luggage className="text-indigo-400" /> 行李打包清單
+    <div className="bg-white rounded-3xl border border-slate-100 p-8 shadow-xl shadow-slate-200/50">
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
+            <Luggage className="text-indigo-500" /> 行李打包清單
         </h2>
         <div className="text-right">
-            <span className="text-3xl font-black text-indigo-400">{progress}%</span>
-            <span className="text-xs text-gray-500 block">COMPLETED</span>
+            <span className="text-3xl font-black text-indigo-500">{progress}%</span>
+            <span className="text-xs text-slate-400 block font-bold tracking-wider">COMPLETED</span>
         </div>
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-gray-700 h-3 rounded-full mb-8 overflow-hidden">
+      <div className="w-full bg-slate-100 h-3 rounded-full mb-8 overflow-hidden">
           <div 
-            className="bg-gradient-to-r from-indigo-500 to-purple-500 h-full rounded-full transition-all duration-500 ease-out"
+            className="bg-gradient-to-r from-indigo-400 to-purple-400 h-full rounded-full transition-all duration-500 ease-out shadow-sm"
             style={{ width: `${progress}%` }}
           ></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {DEFAULT_LIST.map(category => (
-            <div key={category.id} className="bg-gray-900/40 rounded-xl p-4 border border-gray-700/50">
-                <h3 className="font-bold text-gray-300 mb-3 pb-2 border-b border-gray-700/50">
+            <div key={category.id} className="bg-slate-50/50 rounded-2xl p-5 border border-slate-200/50">
+                <h3 className="font-bold text-slate-700 mb-4 pb-2 border-b border-slate-200">
                     {category.title}
                 </h3>
                 <ul className="space-y-2">
@@ -59,14 +59,14 @@ const PackingList: React.FC<PackingListProps> = ({ packedItems, onToggleItem }) 
                             <li 
                                 key={item} 
                                 onClick={() => onToggleItem(item)}
-                                className={`flex items-center gap-3 cursor-pointer p-2 rounded-lg transition-colors ${isChecked ? 'text-gray-500 bg-gray-800/50' : 'text-gray-200 hover:bg-gray-800'}`}
+                                className={`flex items-center gap-3 cursor-pointer p-2.5 rounded-lg transition-colors ${isChecked ? 'text-slate-400 bg-slate-100/50' : 'text-slate-600 hover:bg-white hover:shadow-sm'}`}
                             >
                                 {isChecked ? (
-                                    <CheckSquare size={18} className="text-indigo-500 shrink-0" />
+                                    <CheckSquare size={20} className="text-indigo-400 shrink-0" />
                                 ) : (
-                                    <Square size={18} className="text-gray-500 shrink-0" />
+                                    <Square size={20} className="text-slate-300 shrink-0" />
                                 )}
-                                <span className={isChecked ? 'line-through decoration-gray-600' : ''}>{item}</span>
+                                <span className={isChecked ? 'line-through decoration-slate-300' : 'font-medium'}>{item}</span>
                             </li>
                         );
                     })}

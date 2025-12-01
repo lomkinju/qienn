@@ -228,8 +228,11 @@ const ExpenseTracker: React.FC<ExpenseTrackerProps> = ({
                         className="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-sm text-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-200 focus:outline-none"
                     >
                         <option>奇恩</option>
-                        <option>旅伴 A</option>
-                        <option>旅伴 B</option>
+                        <option>榴槤</option>
+                        <option>檢波器</option>
+                        <option>阿婷</option>
+                        <option>冠彥</option>
+                        <option>許書由</option>
                     </select>
                   </div>
                </div>

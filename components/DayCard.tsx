@@ -299,12 +299,12 @@ const DayCard: React.FC<DayCardProps> = ({ day, onAddItem, onUpdateItem, onDelet
                   </div>
               </div>
           ) : (
-              <button onClick={handleStartAdd} className={`w-full py-4 rounded-2xl border-2 border-dashed font-bold transition-all flex items-center justify-center gap-2 ${
+              <button onClick={handleStartAdd} className={`w-full py-3 rounded-xl border-2 border-dashed font-bold transition-all flex items-center justify-center gap-2 text-sm ${
                   isPlanned 
                   ? 'border-indigo-200 text-indigo-400 hover:border-indigo-400 hover:text-indigo-600 hover:bg-indigo-50/50' 
                   : 'border-slate-300 text-slate-400 hover:border-amber-400 hover:text-amber-500 hover:bg-amber-50/50'
               }`}>
-                  <div className="bg-white p-1 rounded-full shadow-sm"><Plus size={18} /></div> 
+                  <div className="bg-white p-1 rounded-full shadow-sm"><Plus size={16} /></div> 
                   {isPlanned ? '新增行程 / 備用方案' : '開始規劃行程'}
               </button>
           )}

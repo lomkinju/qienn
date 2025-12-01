@@ -81,8 +81,32 @@ export const ITINERARY_DATA: DayPlan[] = [
       { time: "20:00", activity: "晚餐", detail: "轉盤決定" }
     ]
   },
-  { dayLabel: "D5", date: "2/13 (五)", theme: "自由活動 / 待安排", themeIcon: "❓", status: "Unplanned", items: [] },
-  { dayLabel: "D6", date: "2/14 (六)", theme: "自由活動 / 待安排", themeIcon: "❓", status: "Unplanned", items: [] },
+  {
+    dayLabel: "D5", date: "2/13 (五)", theme: "橫濱一日遊 (轉盤版)", themeIcon: "🎡", status: "Planned",
+    items: [
+      { time: "09:00", activity: "起床、早餐", detail: "" },
+      { time: "10:00", activity: "出發前往橫濱", detail: "搭乘電車前往。" },
+      { time: "10:40", activity: "橫濱紅磚倉庫", detail: "拍照、逛特色小店。" },
+      { time: "12:30", activity: "橫濱中華街午餐", detail: "小籠包、炒麵、點心。" },
+      { time: "14:00", activity: "山下公園", detail: "散步、拍港灣風景。" },
+      { time: "15:30", activity: "合味道紀念館", detail: "Cup Noodles Museum。DIY杯麵、拍照、玩互動展。" },
+      { time: "18:30", activity: "晚餐", detail: "轉盤決定（港未來周邊餐廳隨機挑，日式/義式/海鮮）。" },
+      { time: "20:00", activity: "搭車回東京", detail: "" },
+      { time: "21:00", activity: "回住所、休息", detail: "" }
+    ]
+  },
+  {
+    dayLabel: "D6", date: "2/14 (六)", theme: "中野秋葉原爆買、原宿泡湯", themeIcon: "🧖", status: "Planned",
+    items: [
+      { time: "09:00", activity: "起床、早餐", detail: "住所附近簡單吃。" },
+      { time: "10:00", activity: "中野 Nakano Broadway", detail: "動漫周邊、手辦、收藏品、小玩具爆買。" },
+      { time: "12:00", activity: "中野午餐", detail: "中野附近餐廳，轉盤決定。" },
+      { time: "13:00", activity: "秋葉原", detail: "Animate、JUMP Shop、電器街、動漫周邊狂掃。" },
+      { time: "15:30", activity: "KOSUGIYU HARAJUKU", detail: "泡湯放鬆、休息、拍照打卡。" },
+      { time: "17:30", activity: "居酒屋晚餐", detail: "喝小酒、吃日式下酒菜。" },
+      { time: "19:30", activity: "回住所", detail: "休息。" }
+    ]
+  },
   { dayLabel: "D7", date: "2/15 (日)", theme: "自由活動 / 待安排", themeIcon: "❓", status: "Unplanned", items: [] },
   {
     dayLabel: "D8", date: "2/16 (一)", theme: "離境日", themeIcon: "🛫", status: "Planned",

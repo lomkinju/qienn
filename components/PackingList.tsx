@@ -13,71 +13,78 @@ const DEFAULT_LIST: PackingCategory[] = [
       id: 'essentials', 
       title: '🪪 證件財物', 
       items: [
-          '護照 (正本 + 影本)', 
-          '日幣現金 (分開存放)', 
-          '信用卡 x2 (海外回饋高)', 
-          '西瓜卡 (Suica/Pasmo)', 
-          '網卡 / Roaming 設定', 
-          'Visit Japan Web QR Code',
-          '原子筆 (填寫表單用)',
-          '錢包 (零錢包)'
+          '護照正本 (效期 > 6個月)', 
+          '護照影本 + 大頭照備用',
+          '日幣現金 (1萬/5千/1千分開裝)', 
+          '信用卡 x2 (JCB回饋高優先)', 
+          '西瓜卡 (Suica/Pasmo) 餘額確認', 
+          '網卡/eSim/Wifi分享器', 
+          'Visit Japan Web QR截圖',
+          '原子筆 (填入境卡備用)',
+          '旅遊平安險/不便險保單',
+          '緊急聯絡電話/地址'
       ] 
   },
   { 
       id: 'electronics', 
       title: '🔌 電子產品', 
       items: [
-          '手機 & 充電線', 
-          '行動電源 (需隨身行李)', 
-          '轉接頭 (日本雙孔)', 
-          '相機/GoPro/記憶卡', 
-          '耳機 (抗噪推薦)',
-          'Sim 卡針',
-          '延長線/多孔充電器',
-          '自拍棒/腳架'
+          '手機 & 2米充電線', 
+          '行動電源 (不可托運)', 
+          '多孔快速充電頭 (GaN)', 
+          '相機/GoPro & 多張記憶卡', 
+          '藍牙耳機 (機上降噪)',
+          'Sim 卡針 (換卡必備)',
+          '三合一轉接頭 (視需求)',
+          '電子秤 (量行李重量)',
+          '平板/筆電 & 充電器'
       ] 
   },
   { 
       id: 'clothing', 
-      title: '🧥 衣物 (2月)', 
+      title: '🧥 衣物 (2月預防寒冷)', 
       items: [
-          '發熱衣 x3', 
-          '毛衣/帽T', 
-          '厚外套/羽絨衣', 
-          '圍巾/毛帽/手套', 
-          '好走的鞋子 (備用鞋?)', 
-          '睡衣', 
-          '內衣褲/襪子 (多帶)',
-          '太陽眼鏡',
-          '飾品/手錶'
+          '發熱衣/褲 x4 (極暖)', 
+          '厚刷毛衣/針織衫', 
+          '羊毛/羽絨長版外套', 
+          '防風/防水機能外套',
+          '羊毛圍巾/手套/毛帽', 
+          '好走的休閒鞋/運動鞋', 
+          '防水噴霧 (噴鞋子)',
+          '棉質睡衣 (飯店雖有但自備舒服)', 
+          '足量內衣褲 & 羊毛襪',
+          '太陽眼鏡 (雪地或大太陽)',
+          '摺疊傘/輕便雨衣'
       ] 
   },
   { 
       id: 'toiletries', 
       title: '🧴 盥洗與藥品', 
       items: [
-          '牙刷牙膏 (環保)', 
-          '洗面乳/保養品 (加強保濕)', 
-          '常備藥 (感冒/腸胃/止痛/暈車)', 
-          'OK繃/休足時間/酸痛貼布', 
-          '口罩/酒精濕紙巾', 
-          '洗衣袋 (裝髒衣物)',
-          '指甲剪/刮鬍刀',
-          '化妝品/卸妝用品',
-          '梳子/髮圈'
+          '旅行用牙刷牙膏', 
+          '洗面乳/強力保濕乳液/護唇膏', 
+          '指甲剪/刮鬍刀/牙線',
+          '隱形眼鏡/藥水/生理食鹽水',
+          '感冒/退燒/止痛藥 (常用)',
+          '胃藥/止瀉/暈車藥', 
+          '休足時間/酸痛貼布/小林退燒',
+          '口罩 (機上或公共場合)',
+          '酒精濕紙巾 (用餐前消毒)',
+          '洗衣袋 (分隔髒衣物)'
       ] 
   },
   {
       id: 'misc',
       title: '🎒 其他雜物',
       items: [
-          '摺疊傘 (輕便)',
-          '環保購物袋',
-          '水壺/保溫瓶',
-          '暖暖包',
-          '面紙/衛生紙',
-          '行程表 (紙本備用)',
-          '零食/泡麵 (消夜)'
+          '環保購物袋 (大容量收納)',
+          '大垃圾袋 (套行李箱防雨)',
+          '保溫瓶/水壺 (喝熱水)',
+          '暖暖包 (手握式 & 貼式)',
+          '面紙/手帕',
+          '行程表紙本 (以防手機沒電)',
+          '充氣頸枕 (飛機用)',
+          '零食/巧克力 (充飢)'
       ]
   }
 ];
@@ -88,51 +95,42 @@ interface PackingListProps {
 }
 
 const PackingList: React.FC<PackingListProps> = ({ packedItems, onToggleItem }) => {
-  
   const totalItems = DEFAULT_LIST.reduce((acc, cat) => acc + cat.items.length, 0);
   const packedCount = Object.values(packedItems).filter(Boolean).length;
   const progress = Math.round((packedCount / totalItems) * 100);
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-100 p-8 shadow-xl shadow-slate-200/50">
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-3">
+    <div className="bg-white rounded-3xl border border-slate-100 p-6 md:p-8 shadow-xl shadow-slate-200/50">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl md:text-2xl font-black text-slate-800 flex items-center gap-3">
             <Luggage className="text-indigo-500" /> 行李打包清單
         </h2>
         <div className="text-right">
-            <span className="text-3xl font-black text-indigo-500">{progress}%</span>
-            <span className="text-xs text-slate-400 block font-bold tracking-wider">COMPLETED</span>
+            <span className="text-2xl font-black text-indigo-500">{progress}%</span>
+            <span className="text-[10px] text-slate-400 block font-bold tracking-widest uppercase">READY TO GO</span>
         </div>
       </div>
 
-      {/* Progress Bar */}
-      <div className="w-full bg-slate-100 h-3 rounded-full mb-8 overflow-hidden">
-          <div 
-            className="bg-gradient-to-r from-indigo-400 to-purple-400 h-full rounded-full transition-all duration-500 ease-out shadow-sm"
-            style={{ width: `${progress}%` }}
-          ></div>
+      <div className="w-full bg-slate-100 h-2 rounded-full mb-8 overflow-hidden">
+          <div className="bg-indigo-500 h-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {DEFAULT_LIST.map(category => (
-            <div key={category.id} className="bg-slate-50/50 rounded-2xl p-5 border border-slate-200/50">
-                <h3 className="font-bold text-slate-700 mb-4 pb-2 border-b border-slate-200">
+            <div key={category.id} className="bg-slate-50/50 rounded-2xl p-4 border border-slate-200/50">
+                <h3 className="font-bold text-slate-700 text-sm mb-3 pb-1 border-b border-slate-200">
                     {category.title}
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5">
                     {category.items.map(item => {
                         const isChecked = !!packedItems[item];
                         return (
                             <li 
                                 key={item} 
                                 onClick={() => onToggleItem(item)}
-                                className={`flex items-center gap-3 cursor-pointer p-2.5 rounded-lg transition-colors ${isChecked ? 'text-slate-400 bg-slate-100/50' : 'text-slate-600 hover:bg-white hover:shadow-sm'}`}
+                                className={`flex items-center gap-2 cursor-pointer p-1.5 rounded-lg transition-colors text-xs ${isChecked ? 'text-slate-400 bg-slate-100/50' : 'text-slate-600 hover:bg-white hover:shadow-sm'}`}
                             >
-                                {isChecked ? (
-                                    <CheckSquare size={20} className="text-indigo-400 shrink-0" />
-                                ) : (
-                                    <Square size={20} className="text-slate-300 shrink-0" />
-                                )}
+                                {isChecked ? <CheckSquare size={16} className="text-indigo-400 shrink-0" /> : <Square size={16} className="text-slate-300 shrink-0" />}
                                 <span className={isChecked ? 'line-through decoration-slate-300' : 'font-medium'}>{item}</span>
                             </li>
                         );

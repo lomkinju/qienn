@@ -9,31 +9,36 @@ const StatsCard: React.FC = () => {
   const progress = Math.round((plannedDays / totalDays) * 100);
 
   const data = [
-    { name: 'Planned', value: plannedDays, color: '#8b5cf6' }, // violet-500
-    { name: 'Remaining', value: totalDays - plannedDays, color: '#e2e8f0' }, // slate-200
+    { name: 'Planned', value: plannedDays, color: '#8b5cf6' },
+    { name: 'Remaining', value: totalDays - plannedDays, color: '#f1f5f9' },
   ];
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-5 flex flex-col justify-between relative overflow-hidden h-full border border-slate-100">
+    <div className="bg-white rounded-3xl shadow-lg shadow-slate-200/50 p-4 flex flex-col justify-between relative overflow-hidden h-full border border-slate-100">
       <div className="z-10">
-        <h2 className="text-base font-bold text-indigo-500 mb-1 uppercase tracking-wider">規劃進度</h2>
-        <div className="flex items-baseline gap-2">
-             <span className="text-3xl font-extrabold text-slate-800">{plannedDays}</span>
-             <span className="text-slate-400 text-sm font-medium">/ {totalDays} 天</span>
+        <h2 className="text-[10px] font-bold text-indigo-400 mb-0.5 uppercase tracking-widest">規劃進度</h2>
+        <div className="flex items-baseline gap-1.5">
+             <span className="text-2xl font-black text-slate-800">{plannedDays}</span>
+             <span className="text-slate-400 text-[10px] font-bold">/ {totalDays} DAYS</span>
         </div>
-        <p className="text-[10px] text-slate-500 mt-1">已完成 {progress}% 的行程安排</p>
+        <div className="mt-1 flex items-center gap-1.5">
+            <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="bg-indigo-500 h-full transition-all duration-1000" style={{ width: `${progress}%` }}></div>
+            </div>
+            <span className="text-[10px] font-bold text-indigo-500">{progress}%</span>
+        </div>
       </div>
 
-      <div className="h-24 w-full mt-2 -mr-2">
+      <div className="h-16 w-full mt-1">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
               data={data}
               cx="50%"
               cy="50%"
-              innerRadius={25}
-              outerRadius={40}
-              paddingAngle={5}
+              innerRadius={20}
+              outerRadius={30}
+              paddingAngle={2}
               dataKey="value"
               stroke="none"
               startAngle={90}
@@ -44,8 +49,7 @@ const StatsCard: React.FC = () => {
               ))}
             </Pie>
             <Tooltip 
-                contentStyle={{ backgroundColor: '#fff', borderColor: '#e2e8f0', borderRadius: '0.5rem', color: '#1e293b', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)', fontSize: '12px' }}
-                itemStyle={{ color: '#1e293b' }}
+                contentStyle={{ backgroundColor: '#fff', border: 'none', borderRadius: '0.5rem', fontSize: '10px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
                 cursor={false}
             />
           </PieChart>

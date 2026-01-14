@@ -22,7 +22,7 @@ export const COSTS: Costs = {
 
 export const FOOD_LIST: string[] = [
   "燒肉", "壽司", "迴轉壽司", "拉麵", "蕎麥麵", "烏龍麵",
-  "咖哩飯", "炸豬排", "鰻魚飯", "壽喜燒", "涮涮鍋", "關東煮",
+  "咖哩飯", "炸豬排", "湯咖哩", "鰻魚飯", "壽喜燒", "涮涮鍋", "關東煮",
   "章魚燒", "炒麵", "定食", "家庭餐廳"
 ];
 
@@ -107,7 +107,21 @@ export const ITINERARY_DATA: DayPlan[] = [
       { time: "19:30", activity: "回住所", detail: "休息。" }
     ]
   },
-  { dayLabel: "D7", date: "2/15 (日)", theme: "自由活動 / 待安排", themeIcon: "❓", status: "Unplanned", items: [] },
+  {
+    dayLabel: "D7", date: "2/15 (日)", theme: "下北澤文青、古著、湯咖哩", themeIcon: "🎸", status: "Planned",
+    items: [
+      { time: "09:00", activity: "起床、早餐", detail: "面對明天要回國的現實。" },
+      { time: "10:30", activity: "出發前往下北澤", detail: "約 50 分鐘車程。" },
+      { time: "11:30", activity: "湯咖哩排隊 (如: SAMURAI)", detail: "很有名，建議先抽號碼牌。" },
+      { time: "13:00", activity: "午餐：湯咖哩", detail: "清單上的重點美食。" },
+      { time: "14:30", activity: "古著巡禮", detail: "在巷弄中挖掘古著，體驗 Minecraft 洞穴模組風。" },
+      { time: "14:30", activity: "代官山 / 惠比壽", detail: "備案：若不喜歡古著，可轉往代官山散步。", isBackup: true },
+      { time: "16:00", activity: "天馬咖哩麵包", detail: "必買的小吃，邊走邊吃。" },
+      { time: "17:30", activity: "手沖咖啡休憩", detail: "下北澤有許多特色獨立咖啡廳。" },
+      { time: "19:00", activity: "最後晚餐", detail: "順眼的炸豬排或定食。" },
+      { time: "21:00", activity: "回住所、最後整理", detail: "確認行李沒超重。" }
+    ]
+  },
   {
     dayLabel: "D8", date: "2/16 (一)", theme: "離境日", themeIcon: "🛫", status: "Planned",
     items: [
@@ -121,4 +135,4 @@ export const ITINERARY_DATA: DayPlan[] = [
 
 export const INITIAL_EXPENSES: ExpenseRecord[] = [];
 
-export const CURRENCY_RATE = 0.215; // JPY to TWD
+export const CURRENCY_RATE = 0.215;

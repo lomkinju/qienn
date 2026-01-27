@@ -82,17 +82,18 @@ export const ITINERARY_DATA: DayPlan[] = [
     ]
   },
   {
-    dayLabel: "D5", date: "2/13 (五)", theme: "橫濱一日遊 (轉盤版)", themeIcon: "🎡", status: "Planned",
+    dayLabel: "D5", date: "2/13 (五)", theme: "春日部「小新、神殿、紅鳥居」爆買爆拍", themeIcon: "🖍️", status: "Planned",
     items: [
-      { time: "09:00", activity: "起床、早餐", detail: "" },
-      { time: "10:00", activity: "出發前往橫濱", detail: "搭乘電車前往。" },
-      { time: "10:40", activity: "橫濱紅磚倉庫", detail: "拍照、逛特色小店。" },
-      { time: "12:30", activity: "橫濱中華街午餐", detail: "小籠包、炒麵、點心。" },
-      { time: "14:00", activity: "山下公園", detail: "散步、拍港灣風景。" },
-      { time: "15:30", activity: "合味道紀念館", detail: "Cup Noodles Museum。DIY杯麵、拍照、玩互動展。" },
-      { time: "18:30", activity: "晚餐", detail: "轉盤決定（港未來周邊餐廳隨機挑，日式/義式/海鮮）。" },
-      { time: "20:00", activity: "搭車回東京", detail: "" },
-      { time: "21:00", activity: "回住所、休息", detail: "" }
+      { time: "09:00", activity: "起床、聽故事", detail: "聽完故事，檢查 iPhone 14 Pro 空間跟行動電源。" },
+      { time: "10:40", activity: "春日部站朝聖", detail: "錄下小新發車音樂，車站內外的小新看板拍一輪。" },
+      { time: "11:15", activity: "Sato-Kokonokado", detail: "拍蝙蝠標誌、逛 3 樓展示區，買限定的「蝙蝠商標」周邊。" },
+      { time: "12:00", activity: "春日部八幡神社", detail: "【拍照點】 穿梭在紅色鳥居參道，拍出最有質感的日本味照片。" },
+      { time: "13:00", activity: "午餐：春日部美食", detail: "吃「春日部炒麵」或是找間廣志風格的定食屋填飽肚子。" },
+      { time: "14:30", activity: "首都圈外郭放水路", detail: "【震撼點】 從南櫻井站過去，進入地下神殿，感受 Minecraft 級的壯觀柱子。" },
+      { time: "16:30", activity: "Lala Garden 春日部", detail: "【好逛好買重點】 直衝 3 樓「布里布里電影院」。1. 拍巨大的電影看板和小新屁屁金像。 2. 買限定周邊公仔。" },
+      { time: "18:30", activity: "春日部站前商店街", detail: "到觀光情報站蓋章，買小新「特別住民票」當紀念。" },
+      { time: "19:30", activity: "回北千住：深夜美食", detail: "找間巷弄燒肉或炸豬排，慶祝今天走完 2 萬步。" },
+      { time: "21:30", activity: "回家、檢查戰利品", detail: "整理公仔，算一下錢包還剩多少日幣。" }
     ]
   },
   {

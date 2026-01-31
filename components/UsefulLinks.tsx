@@ -1,33 +1,33 @@
 
-import React from 'react';
 import { ExternalLink, Map, QrCode, Train, Coins } from 'lucide-react';
+import React from 'react';
 
 const LINKS = [
     { 
         name: 'Visit Japan Web', 
         desc: '入境檢疫、海關申報', 
-        url: 'https://vjw-lp.digital.go.jp/zh-hant/', 
+        url: 'https://www.vjw.digital.go.jp/', 
         icon: QrCode,
         color: 'from-pink-400 to-rose-500'
     },
     { 
         name: 'Google Maps', 
         desc: '東京地圖與導航', 
-        url: 'https://goo.gl/maps/tokyo', 
+        url: 'https://www.google.com/maps/@35.6895,139.6917,12z', 
         icon: Map,
         color: 'from-blue-400 to-indigo-500'
     },
     { 
         name: '乘換案內 (Jorudan)', 
-        desc: '電車轉乘查詢', 
+        desc: '地鐵/JR 轉乘查詢', 
         url: 'https://world.jorudan.co.jp/mln/zh-tw/', 
         icon: Train,
         color: 'from-green-400 to-emerald-500'
     },
     { 
-        name: '匯率試算', 
-        desc: 'JPY / TWD 即時匯率', 
-        url: 'https://rate.bot.com.tw/xrt?Lang=zh-TW', 
+        name: '匯率即時試算', 
+        desc: 'JPY / TWD 即時轉換', 
+        url: 'https://www.xe.com/currencyconverter/convert/?Amount=1&From=JPY&To=TWD', 
         icon: Coins,
         color: 'from-yellow-400 to-amber-500'
     }

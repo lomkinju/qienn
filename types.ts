@@ -5,8 +5,9 @@ export interface ItineraryItem {
   time: string;
   activity: string;
   detail: string;
+  location?: string; // 精確地點關鍵字
   isHighlight?: boolean;
-  isBackup?: boolean; // 新增：是否為備用方案
+  isBackup?: boolean;
 }
 
 export interface DayPlan {

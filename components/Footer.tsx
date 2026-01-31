@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="text-left">
                 <p className="text-red-500 text-sm font-bold">📢 離境日提醒 (2/16)</p>
-                <p className="text-slate-500 text-xs mt-0.5">回程班機 19:55。建議最遲於 16:00 前從北千住出發前往成田機場 (NRT)。</p>
+                <p className="text-slate-500 text-xs mt-0.5">回程班機 19:55。建議最遲於 16:00 前從堀切出發前往成田機場 (NRT)。</p>
             </div>
         </div>
         <div className="mt-6 text-slate-400 text-xs font-medium">

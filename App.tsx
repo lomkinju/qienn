@@ -24,6 +24,7 @@ type Tab = 'home' | 'itinerary' | 'expenses' | 'food' | 'info';
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('home');
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [activeDayIndex, setActiveDayIndex] = useState(0);
   
   // -- Global State --
   const [itinerary, setItinerary] = useState<DayPlan[]>(ITINERARY_DATA);
@@ -54,6 +55,17 @@ const App: React.FC = () => {
     setDaysUntilTrip(Math.ceil(difference / (1000 * 3600 * 24)));
   }, []);
 
+  // 監聽行程滾動來更新目前的 D1/D2 狀態
+  const handleItineraryScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const container = e.currentTarget;
+    const scrollLeft = container.scrollLeft;
+    const width = container.offsetWidth;
+    const newIndex = Math.round(scrollLeft / width);
+    if (newIndex !== activeDayIndex) {
+      setActiveDayIndex(newIndex);
+    }
+  };
+
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle('dark');
@@ -65,7 +77,6 @@ const App: React.FC = () => {
     setTimeout(() => setShowSaveToast(false), 2500);
   };
 
-  // -- Itinerary Handlers --
   const handleAddItineraryItem = (dayLabel: string, newItem: ItineraryItem) => {
     setItinerary(prev => prev.map(day => {
       if (day.dayLabel === dayLabel) {
@@ -96,6 +107,17 @@ const App: React.FC = () => {
         }
         return day;
     }));
+  };
+
+  const scrollToDay = (index: number) => {
+    if (itineraryContainerRef.current) {
+        const width = itineraryContainerRef.current.offsetWidth;
+        itineraryContainerRef.current.scrollTo({
+            left: width * index,
+            behavior: 'smooth'
+        });
+        setActiveDayIndex(index);
+    }
   };
 
   const currentTheme = itinerary.find((_, i) => i === 0)?.theme || "東京之旅";
@@ -181,14 +203,31 @@ const App: React.FC = () => {
 
             {activeTab === 'itinerary' && (
             <div className="animate-in fade-in zoom-in-95 duration-300 h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6 px-2 shrink-0">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 px-2 shrink-0 gap-4">
                     <div>
                         <h2 className="text-3xl font-bold text-slate-800 dark:text-white tracking-tight">每日行程</h2>
-                        <p className="text-slate-500 dark:text-gray-400 text-sm mt-1">左右滑動卡片切換天數</p>
+                        <p className="text-slate-500 dark:text-gray-400 text-sm mt-1">左右滑動或點擊按鈕切換天數</p>
+                    </div>
+                    {/* 置頂快捷導覽列 */}
+                    <div className="flex gap-1.5 p-1 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-gray-800 overflow-x-auto no-scrollbar max-w-full sm:max-w-md shadow-sm">
+                        {itinerary.map((day, idx) => (
+                            <button 
+                                key={idx}
+                                onClick={() => scrollToDay(idx)}
+                                className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-300 whitespace-nowrap ${
+                                    activeDayIndex === idx 
+                                    ? 'bg-indigo-600 dark:bg-neon-blue text-white shadow-lg scale-105' 
+                                    : 'text-slate-400 dark:text-gray-500 hover:text-slate-600 dark:hover:text-gray-300'
+                                }`}
+                            >
+                                {day.dayLabel}
+                            </button>
+                        ))}
                     </div>
                 </div>
                 <div 
                     ref={itineraryContainerRef}
+                    onScroll={handleItineraryScroll}
                     className="flex-1 flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 no-scrollbar items-start px-2"
                 >
                     {itinerary.map((day, index) => (
